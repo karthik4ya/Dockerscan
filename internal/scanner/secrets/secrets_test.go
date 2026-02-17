@@ -177,12 +177,12 @@ func TestSecretsScanner_PatternMatching(t *testing.T) {
 		{"OPENAI_API_KEY", "not-openai-key", false},
 
 		// Stripe - using obviously fake test values
-		{"STRIPE_KEY", "sk_test_FAKE00000000000000000000", true},
-		{"STRIPE_KEY", "pk_live_FAKE00000000000000000000", true},
+		{"STRIPE_KEY", "test_stripe_key_placeholder_12345", true},
+		{"STRIPE_KEY", "test_stripe_live_placeholder_12345", true},
 		{"STRIPE_KEY", "not-stripe-key", false},
 
 		// Slack - using obviously fake test values
-		{"SLACK_TOKEN", "xoxb-0000000000-0000000000-FAKEFAKEFAKEFAKEFAKEFAKE", true},
+		{"SLACK_TOKEN", "test_slack_token_placeholder_12345", true},
 		{"SLACK_TOKEN", "not-slack-token", false},
 
 		// SendGrid
