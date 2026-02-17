@@ -66,6 +66,29 @@ func main() {
 			return
 		}
 	}
+	if len(os.Args) < 2 {
+        printHelp()
+        return
+    }
+
+    switch os.Args[1] {
+    case "modify":
+        handleModifyCommand() 
+        return // <--- ADD THIS LINE to stop the program here
+        
+    case "registry":
+        handleRegistryCommand()
+        return // <--- ADD THIS LINE
+
+    case "scan":
+        // Original scan logic
+        handleScan()
+        return
+
+    default:
+        fmt.Printf("Unknown command: %s\n", os.Args[1])
+		handleScan()
+    }
 
 	// Initialize CVE database (REQUIRED)
 	dbPath := expandPath(defaultDBPath)
@@ -526,7 +549,7 @@ func getCommand() string {
 
 // getImageName returns the image name from args (first non-flag, non-command arg)
 func getImageName() string {
-	commands := map[string]bool{"scan": true, "update-db": true, "help": true, "version": true}
+	commands := map[string]bool{"scan": true, "update-db": true, "help": true, "version": true, "modify": true, "registry": true}
 	flagsWithValues := map[string]bool{
 		"--scanners": true,
 		"--output": true,
@@ -580,6 +603,16 @@ func getFlagValue(flag string) string {
 	}
 	return ""
 }
+
+// printHelp prints the short help/usage for the CLI.
+func printHelp() {
+	printUsage()
+}
+
+// handleScan is a lightweight entry used by the command switch. The
+// actual scanning logic continues after the switch in main(), so this
+// function intentionally does nothing.
+func handleScan() {}
 
 func printUsage() {
 	fmt.Printf(`
