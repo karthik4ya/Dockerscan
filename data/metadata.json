@@ -1,9 +1,9 @@
 {
-  "version": "2026.08.04.0257",
-  "last_modified": "2026-08-04T02:57:09Z",
-  "cve_count": 1937,
+  "version": "2026.08.05.0252",
+  "last_modified": "2026-08-05T02:52:38Z",
+  "cve_count": 1962,
   "db_size_uncompressed": "1.8M",
-  "checksum_sha256": "8f18cead23503a04878c907abaa496ed949497af4db77b331aa569616c0aaa74",
-  "date_range_start": "2026-07-28",
-  "date_range_end": "2026-08-04"
+  "checksum_sha256": "891c636696ed25c8318aea42acc839b1286f8feddc6741f28394f0b1ddc89ce0",
+  "date_range_start": "2026-07-29",
+  "date_range_end": "2026-08-05"
 }
